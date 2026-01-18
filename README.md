@@ -11,7 +11,7 @@ MCP Chat is a command-line interface application that enables interactive chat c
 
 ### Step 1: Configure the environment variables
 
-1. Create or edit the `.env` file in the project root and verify that the following variables are set correctly:
+1. Add your Anthropic API key to the `.env` file
 
 ```
 ANTHROPIC_API_KEY=""  # Enter your Anthropic API secret key
@@ -99,12 +99,6 @@ Commands will auto-complete when you press Tab.
 
 Edit the `mcp_server.py` file to add new documents to the `docs` dictionary.
 
-### Implementing MCP Features
-
-To fully implement the MCP features:
-
-1. Complete the TODOs in `mcp_server.py`
-2. Implement the missing functionality in `mcp_client.py`
 
 ### Linting and Typing Check
 
