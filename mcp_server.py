@@ -1,4 +1,4 @@
-from Pydantic import Field
+from pydantic import Field
 from mcp.server.fastmcp import FastMCP
 
 mcp = FastMCP("DocumentMCP", log_level="ERROR")
@@ -15,7 +15,7 @@ docs = {
 
 # tool to read a document
 @mcp.tool(
-    name="read_doc_contents"
+    name="read_doc_contents",
     description="Read the contents of a document and return it as a string."
 )
 
@@ -29,19 +29,19 @@ def read_document(
 
 # tool to edit a doc
 @mcp.tool(
-    name="read_doc_contents"
+    name="edit_doc_contents",
     description="Edit a document by replacing a string in the document's content with a new string."
 )
 
 def edit_document(
-    doc_id: str = Field(description="ID of the document that will be edited")
-    old_string: str = Field(description="The text to replace. Must match exactly, including whitespace.")
+    doc_id: str = Field(description="ID of the document that will be edited"),
+    old_string: str = Field(description="The text to replace. Must match exactly, including whitespace."),
     new_string: str = Field(description="The new text to insert in the document.")
 ):
     if doc_id not in docs:
         raise ValueError(f"Doc with id {doc_id} not found")
 
-    docs[doc_id] = docs[doc_id].replace(old_str, new_str)
+    docs[doc_id] = docs[doc_id].replace(old_string, new_string)
 
 # TODO: Write a resource to return all doc id's
 # TODO: Write a resource to return the contents of a particular doc
